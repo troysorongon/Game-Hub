@@ -1,4 +1,4 @@
-import { Button, ButtonGroup, HStack, Show } from "@chakra-ui/react";
+import { Box, Button, ButtonGroup, Flex, HStack, Show } from "@chakra-ui/react";
 import { Grid, GridItem } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
 import GameGrid from "./components/GameGrid";
@@ -38,10 +38,12 @@ function App() {
         </GridItem>
       </Show>
       <GridItem area={"main"}>
-        <HStack spacing={5} paddingLeft={2} marginBottom={5}>
-          <PlatformSelector onSelectPlatform={(platform) => setGameQuery({...GameQuery, platform})} selectedPlatform={GameQuery.platform}></PlatformSelector>
+        <Flex paddingLeft={2} marginBottom={5}>
+          <Box paddingRight={5}>
+            <PlatformSelector onSelectPlatform={(platform) => setGameQuery({...GameQuery, platform})} selectedPlatform={GameQuery.platform}></PlatformSelector>
+          </Box>
           <SortSelector onSelectSort={(sort) => setGameQuery({...GameQuery, sort})} selectedSort={GameQuery.sort}></SortSelector>
-        </HStack>
+        </Flex>
         <GameGrid GameQuery={GameQuery}></GameGrid>
       </GridItem>
     </Grid>
